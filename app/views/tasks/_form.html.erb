@@ -1,10 +1,10 @@
 <%= simple_form_for @task, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :scheduled_to %>
-  <%= f.input :status %>
+  <%= f.input :scheduled_to, start_year: Date.today.year %>
+  <%= f.input :status, as: :select, collection: select_options_for_task_statuses %>
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= f.button :submit, :class => 'btn-primary btn' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 tasks_path, :class => 'btn' %>
   </div>

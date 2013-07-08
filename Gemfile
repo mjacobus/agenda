@@ -43,3 +43,16 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'rspec-rails'
+gem 'factory_girl_rails'
+gem 'shoulda-matchers'
+gem 'spork-rails', github: 'sporkrb/spork-rails'
+gem 'simple_form'
+gem 'devise', '~> 3.0.0.rc'
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem 'therubyracer'
+gem 'draper'
+gem 'guard-rspec'
+gem 'guard-spork'

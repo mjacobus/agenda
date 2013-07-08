@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :task do
     name "MyString"
     description "MyText"
-    scheduled_to ""
+    scheduled_to 1.day.from_now
     status "MyString"
   end
 end

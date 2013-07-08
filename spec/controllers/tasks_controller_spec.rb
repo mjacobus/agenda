@@ -1,20 +1,15 @@
 require 'spec_helper'
 
 describe TasksController do
+  render_views
 
-  # This should return the minimal set of attributes required to create a valid
-  # Task. As you add validations to Task, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) { { "name" => "MyString" } }
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # TasksController. Be sure to keep this updated too.
+  let(:valid_attributes) { attributes_for(:task) }
   let(:valid_session) { {} }
+  let(:task) { create(:task) }
 
   describe "GET index" do
     it "assigns all tasks as @tasks" do
-      task = Task.create! valid_attributes
+      task # create task before test
       get :index, {}, valid_session
       assigns(:tasks).should eq([task])
     end
@@ -22,7 +17,6 @@ describe TasksController do
 
   describe "GET show" do
     it "assigns the requested task as @task" do
-      task = Task.create! valid_attributes
       get :show, {:id => task.to_param}, valid_session
       assigns(:task).should eq(task)
     end
@@ -37,7 +31,6 @@ describe TasksController do
 
   describe "GET edit" do
     it "assigns the requested task as @task" do
-      task = Task.create! valid_attributes
       get :edit, {:id => task.to_param}, valid_session
       assigns(:task).should eq(task)
     end
@@ -70,13 +63,6 @@ describe TasksController do
         post :create, {:task => { "name" => "invalid value" }}, valid_session
         assigns(:task).should be_a_new(Task)
       end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Task.any_instance.stub(:save).and_return(false)
-        post :create, {:task => { "name" => "invalid value" }}, valid_session
-        response.should render_template("new")
-      end
     end
   end
 
@@ -84,22 +70,16 @@ describe TasksController do
     describe "with valid params" do
       it "updates the requested task" do
         task = Task.create! valid_attributes
-        # Assuming there are no other tasks in the database, this
-        # specifies that the Task created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
         Task.any_instance.should_receive(:update).with({ "name" => "MyString" })
         put :update, {:id => task.to_param, :task => { "name" => "MyString" }}, valid_session
       end
 
       it "assigns the requested task as @task" do
-        task = Task.create! valid_attributes
         put :update, {:id => task.to_param, :task => valid_attributes}, valid_session
         assigns(:task).should eq(task)
       end
 
       it "redirects to the task" do
-        task = Task.create! valid_attributes
         put :update, {:id => task.to_param, :task => valid_attributes}, valid_session
         response.should redirect_to(task)
       end
@@ -108,32 +88,22 @@ describe TasksController do
     describe "with invalid params" do
       it "assigns the task as @task" do
         task = Task.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
         Task.any_instance.stub(:save).and_return(false)
         put :update, {:id => task.to_param, :task => { "name" => "invalid value" }}, valid_session
         assigns(:task).should eq(task)
-      end
-
-      it "re-renders the 'edit' template" do
-        task = Task.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Task.any_instance.stub(:save).and_return(false)
-        put :update, {:id => task.to_param, :task => { "name" => "invalid value" }}, valid_session
-        response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
     it "destroys the requested task" do
-      task = Task.create! valid_attributes
+      task # create task
       expect {
         delete :destroy, {:id => task.to_param}, valid_session
       }.to change(Task, :count).by(-1)
     end
 
     it "redirects to the tasks list" do
-      task = Task.create! valid_attributes
       delete :destroy, {:id => task.to_param}, valid_session
       response.should redirect_to(tasks_url)
     end

@@ -5,6 +5,6 @@ FactoryGirl.define do
     name "MyString"
     description "MyText"
     scheduled_to 1.day.from_now
-    status "MyString"
+    status Task::STATUSES.first
   end
 end

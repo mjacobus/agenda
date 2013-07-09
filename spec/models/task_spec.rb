@@ -12,6 +12,11 @@ describe Task do
   describe '#status' do
     it { should ensure_inclusion_of(:status).in_array(Task::STATUSES) }
   end
+
+  describe '#user' do
+    it { should belong_to(:user) }
+    it { should validate_presence_of(:user) }
+  end
 end
 
 describe Task do

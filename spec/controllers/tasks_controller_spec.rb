@@ -4,8 +4,17 @@ describe TasksController do
   render_views
 
   let(:valid_attributes) { attributes_for(:task) }
-  let(:valid_session) { {} }
-  let(:task) { create(:task) }
+  let(:valid_session) do
+    sign_in(user)
+    @session
+  end
+
+  let(:user) { create(:user) }
+  let(:task) { create(:task, user: user) }
+
+  it "inherits from UsersController" do
+    expect(TasksController.new).to be_a(UsersController)
+  end
 
   describe "GET index" do
     it "assigns all tasks as @tasks" do
@@ -69,7 +78,6 @@ describe TasksController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested task" do
-        task = Task.create! valid_attributes
         Task.any_instance.should_receive(:update).with({ "name" => "MyString" })
         put :update, {:id => task.to_param, :task => { "name" => "MyString" }}, valid_session
       end
@@ -87,7 +95,6 @@ describe TasksController do
 
     describe "with invalid params" do
       it "assigns the task as @task" do
-        task = Task.create! valid_attributes
         Task.any_instance.stub(:save).and_return(false)
         put :update, {:id => task.to_param, :task => { "name" => "invalid value" }}, valid_session
         assigns(:task).should eq(task)

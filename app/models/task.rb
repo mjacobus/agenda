@@ -7,5 +7,6 @@ class Task < ActiveRecord::Base
   validates :status, inclusion: { in: STATUSES }
   validates :user, presence: true
 
+  default_scope ->{ order(:scheduled_to) }
   scope :with_status, ->(status){ where(status: status) }
 end

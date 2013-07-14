@@ -12,4 +12,8 @@ class TaskDecorator < Draper::Decorator
     end
     value
   end
+
+  def status
+    h.t("system.task.status.#{object.status}")
+  end
 end

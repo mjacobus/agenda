@@ -1,0 +1,9 @@
+pt-BR:
+  system:
+    task:
+      time:
+        any: "Qualquer"
+      status:
+        open: Aberto
+        canceled: Cancelado
+        done: Realizado

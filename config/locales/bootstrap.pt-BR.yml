@@ -1,0 +1,15 @@
+pt-BR:
+  helpers:
+    actions: "Ações"
+    links:
+      back: "Voltar"
+      cancel: "Cancelar"
+      confirm: "Tem certeza?"
+      destroy: "Excluir"
+      new: "Novo"
+      edit: "Editar"
+    titles:
+      edit: "Editar"
+      save: "Salvar"
+      new: "Novo"
+      delete: "Excluir"

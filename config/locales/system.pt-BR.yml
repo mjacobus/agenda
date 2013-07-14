@@ -7,3 +7,6 @@ pt-BR:
         open: Aberto
         canceled: Cancelado
         done: Realizado
+    messages:
+      logged_as: "Bem vindo %{name}"
+      logout: "Sair"

@@ -13,7 +13,7 @@
       <% if index == 0 %>
         <h2 data-date-group="<%= date %>"><%= task_decorator.date %></h2>
       <% end %>
-      <div class="record-container row-fluid task" data-date-group="<%= date %>">
+      <div class="record-container row-fluid task_list_item" data-date-group="<%= date %>">
         <div class="span2">
           <%= link_to task_decorator.time, task_path(task_decorator) %>
         </div>

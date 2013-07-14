@@ -16,4 +16,8 @@ class TaskDecorator < Draper::Decorator
   def status
     h.t("system.task.status.#{object.status}")
   end
+
+  def date_and_time
+    "#{date}, #{time}"
+  end
 end

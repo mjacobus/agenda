@@ -2,7 +2,7 @@ pt-BR:
   system:
     task:
       time:
-        any: "Qualquer"
+        any: "qualquer hora"
       status:
         open: Aberto
         canceled: Cancelado

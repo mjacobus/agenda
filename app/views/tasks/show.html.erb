@@ -3,16 +3,18 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
+<% decorate(@task) do |task_decorator| %>
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @task.name %></dd>
+  <dd><%= task_decorator.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @task.description %></dd>
+  <dd><%= task_decorator.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:scheduled_to) %>:</strong></dt>
-  <dd><%= @task.scheduled_to %></dd>
+  <dd><%= task_decorator.date_and_time %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @task.status %></dd>
+  <dd><%= task_decorator.status %></dd>
 </dl>
+<% end %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

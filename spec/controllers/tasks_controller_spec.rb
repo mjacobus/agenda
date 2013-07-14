@@ -20,7 +20,7 @@ describe TasksController do
     it "assigns all tasks as @tasks" do
       task # create task before test
       get :index, {}, valid_session
-      assigns(:tasks).should eq([task])
+      assigns(:tasks).should be_a(TaskQuery)
     end
   end
 

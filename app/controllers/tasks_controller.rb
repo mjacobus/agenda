@@ -2,7 +2,12 @@ class TasksController < UsersController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = current_user.tasks
+    @tasks = TaskQuery.new(current_user.tasks).build do |q|
+      q.from params[:from] if params[:from].present?
+      q.to params[:to] if params[:to].present?
+      q.matching params[:q] if params[:q].present?
+    end
+    
     respond_with(@tasks)
   end
 

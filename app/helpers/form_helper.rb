@@ -6,4 +6,8 @@ module FormHelper
     end
     options
   end
+
+  def date_format
+    t('date.formats.default').gsub('%d', 'dd').gsub('%m', 'mm').gsub('%Y', 'yyyy')
+  end
 end

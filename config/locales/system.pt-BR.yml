@@ -7,6 +7,11 @@ pt-BR:
         open: Aberto
         canceled: Cancelado
         done: Realizado
+    forms:
+      matches: Buscar
+      to: Até
+      from: De
+      status: Status
     messages:
       logged_as: "Bem vindo %{name}"
       logout: "Sair"

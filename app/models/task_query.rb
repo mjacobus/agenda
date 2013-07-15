@@ -22,12 +22,12 @@ class TaskQuery
   end
 
   def from(time)
-    time = to_date(time).beginning_of_day
+    time = to_time(time).beginning_of_day
     @q = @q.where(t[:scheduled_to].gt(time))
   end
 
   def to(time)
-    time = to_date(time).end_of_day
+    time = to_time(time).end_of_day
     @q = @q.where(t[:scheduled_to].lt(time))
   end
 
@@ -45,6 +45,15 @@ class TaskQuery
       case value
         when Date, Time
           value.to_date
+        when String
+          Date.parse(value)
+      end
+    end
+
+    def to_time(value)
+      case value
+        when Date, Time
+          value.to_time
         when String
           Date.parse(value)
       end

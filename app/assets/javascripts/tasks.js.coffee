@@ -8,3 +8,5 @@ jQuery ->
       $("h2#{groupSelector}").fadeOut -> $(@).remove()
 
     container.fadeOut -> $(@).remove()
+
+  $('input.date').datepicker()

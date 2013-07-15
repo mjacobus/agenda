@@ -1,13 +1,16 @@
 class TasksController < UsersController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_default_filter_params
 
   def index
     @tasks = TaskQuery.new(current_user.tasks).build do |q|
-      q.from params[:from] if params[:from].present?
-      q.to params[:to] if params[:to].present?
-      q.matching params[:q] if params[:q].present?
+      params.each do |name, value|
+        if q.respond_to?(name) && value.present?
+          q.send(name, value)
+        end
+      end
     end
-    
+
     respond_with(@tasks)
   end
 
@@ -47,5 +50,15 @@ class TasksController < UsersController
 
     def task_params
       params.require(:task).permit(:name, :description, :scheduled_to, :status)
+    end
+
+    def set_default_filter_params
+      unless params[:from].present?
+        params[:from] = l(Date.today)
+      end
+
+      unless params[:to].present?
+        params[:to] = l(7.days.from_now.to_date)
+      end
     end
 end

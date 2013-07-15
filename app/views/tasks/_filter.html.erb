@@ -1,0 +1,45 @@
+<div id="filter">
+  <%= form_tag(tasks_path, method: :get) do -%>
+
+    <div class="control-group">
+      <div class="input-prepend input-append">
+        <%= label_tag :matches, t('system.forms.matches'), class: 'add-on' %>
+        <%= text_field_tag :matches, params[:matches], class: 'input-medium' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="input-prepend input-append">
+        <%= label_tag :status, t('system.forms.status'), class: 'add-on' %>
+        <%= select_tag :status, options_for_select(select_options_for_task_statuses, params[:status]), include_blank: true, class: 'input-medium' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="input-prepend input-append">
+        <%= label_tag :from, t('system.forms.from'), class: 'add-on date' %>
+        <%= date_field_tag :from, params[:from], data: { 'date-format' => date_format }, class: 'date input-small' %>
+        <span class="add-on">
+          <i class="icon-calendar"></i>
+        </span>
+      </div>
+    </div>
+
+    
+    <div class="control-group">
+      <div class="input-prepend input-append">
+        <%= label_tag :to, t('system.forms.to'), class: 'add-on date' %>
+        <%= date_field_tag :to, params[:to], data: { 'date-format' => date_format }, class: 'date input-small' %>
+        <span class="add-on">
+          <i class="icon-calendar"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <button type="submit" class="btn btn-success left"><%= t('system.forms.search') %></button>
+    </div>
+    
+  <% end -%>
+
+</div>

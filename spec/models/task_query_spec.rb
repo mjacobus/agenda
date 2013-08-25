@@ -101,11 +101,7 @@ describe TaskQuery do
       today = create(:task, scheduled_to: '2001-01-02')
       tomorrow =  create(:task, scheduled_to: '2001-01-03')
 
-      expect(
-        subject.query do
-          from '2001-01-01'
-        end.to_a
-      ).to eq([today, tomorrow])
+      subject.query{ from '2001-01-01' }.to_a =~ [today, tomorrow]
     end
   end
 

@@ -22,7 +22,7 @@ class TaskQuery
   end
 
   def from(time)
-    time = to_time(time).beginning_of_day
+    time = to_time(time).beginning_of_day.utc.change(hour: 0, min: 0)
     @q = @q.where(t[:scheduled_to].gt(time))
   end
 

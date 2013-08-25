@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :user do
     email { generate(:email) }
-    password 'password'
+    provider :facebook
+    uid { generate(:uid) }
   end
 end

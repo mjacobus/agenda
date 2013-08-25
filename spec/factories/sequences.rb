@@ -27,3 +27,10 @@ FactoryGirl.define do
     "Title #{n}"
   end
 end
+
+
+FactoryGirl.define do
+  sequence :uid do |n|
+    [n,n,n,n].join('')
+  end
+end

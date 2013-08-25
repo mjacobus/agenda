@@ -15,3 +15,10 @@ pt-BR:
     messages:
       logged_as: "Bem vindo %{name}"
       logout: "Sair"
+      login_succeed: Bem vindo!
+    helpers:
+      links:
+        login: Login
+        facebook_login: Logar com o facebook
+        logout: Sair
+

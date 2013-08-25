@@ -19,7 +19,7 @@
     <div id="login_bar" class="container-fluid">
       <div class="row-fluid">
         <div class="span10"><%= t('system.messages.logged_as', name: current_user.email) %></div>
-        <div class="span2 text-right"><%= link_to t('system.messages.logout'), :destroy_user_session, method: :delete %></div>
+        <div class="span2 text-right"><%= link_to t('system.messages.logout'), destroy_user_session_path %></div>
       </div>
     </div>
 
@@ -41,8 +41,8 @@
       </div>
     </div>
 
-    
-              
+
+
 
     <div class="container-fluid">
       <div class="row-fluid">

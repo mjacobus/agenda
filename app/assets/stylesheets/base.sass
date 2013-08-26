@@ -67,3 +67,50 @@
   background: url(/assets/authbuttons/facebook_32.png)
   width: 32px
   height: 32px
+
+.tasks
+  text-align: center
+  h2
+    width: 100%
+    float: left
+    text-align: left
+  .task:hover
+    .actions
+      display: block
+  .task
+    background: #eee
+    float: left
+    height: 200px
+    margin: 10px
+    overflow: hidden
+    position: relative
+    width: 200px
+
+    .line
+      padding: 5px 0
+      width: 100%
+    .content
+      padding: 10px
+    .title
+      font-size: 20px
+      margin-top: 20px
+    .description
+      font-size: 12px
+
+    .actions
+      bottom: 0
+      position: absolute
+      width: 100%
+      display: none
+
+  .time, .status
+    position: absolute
+    top: 0
+    width: 50%
+
+
+  .time
+    left: 0
+  .status
+    right: 0
+

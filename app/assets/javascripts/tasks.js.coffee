@@ -1,6 +1,6 @@
 jQuery ->
   $('a.destroy_task').on 'ajax:complete', ->
-    container = $(@).parents('.record-container')
+    container = $(@).parents('.tasks')
     group = container.data('date-group')
     groupSelector = "[data-date-group='#{group}']"
     similar = $("div#{groupSelector}")

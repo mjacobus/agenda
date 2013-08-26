@@ -20,4 +20,8 @@ class TaskDecorator < Draper::Decorator
   def date_and_time
     "#{date}, #{time}"
   end
+
+  def short_description
+    description
+  end
 end

@@ -1,0 +1,11 @@
+<% if current_user %>
+  <div class="login_status">
+    <div class="face"><%= image_tag(current_user.avatar) %></div>
+    <div class="name"><%= link_to current_user.name, :tasks %></div>
+  </div>
+
+<% else %>
+  <div class="login_status">
+    <%= facebook_login_button(:small) %>
+  </div>
+<% end %>

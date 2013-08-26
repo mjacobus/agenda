@@ -25,6 +25,7 @@ describe OauthFacebook do
         expect(user.provider).to eq('facebook')
         expect(user.email).to eq(params[:info][:email])
         expect(user.name).to eq(params[:info][:name])
+        expect(user.avatar).to eq(params[:info][:image])
       end
     end
 
@@ -43,6 +44,7 @@ describe OauthFacebook do
         user = OauthFacebook.find_or_build_user(params)
         expect(user.email).to eq(params[:info][:email])
         expect(user.name).to eq(params[:info][:name])
+        expect(user.avatar).to eq(params[:info][:image])
       end
     end
 

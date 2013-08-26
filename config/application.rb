@@ -28,5 +28,9 @@ module Agenda
     config.i18n.default_locale = 'pt-BR'
 
     config.autoload_paths += %W(#{config.root}/lib)
+
+    config.to_prepare do
+      Devise::SessionsController.layout "guest"
+    end
   end
 end

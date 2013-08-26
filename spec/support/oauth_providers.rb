@@ -37,7 +37,7 @@ OmniAuth.config.mock_auth[:facebook] = {
     :name => 'Example Name facebook',
     :first_name => 'Joe',
     :last_name => 'Bloggs',
-    :image => '',
+    :image => 'http://animage.com',
     :urls => { :Facebook => '' },
     :location => 'some place',
     :verified => true

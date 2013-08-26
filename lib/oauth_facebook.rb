@@ -10,6 +10,7 @@ class OauthFacebook
 
     user.email = params[:info][:email]
     user.name = params[:info][:name]
+    user.avatar = params[:info][:image]
     user
   end
 end

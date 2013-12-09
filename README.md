@@ -1,6 +1,7 @@
 # Agenda
 
 [![Build Status](https://secure.travis-ci.org/tinyapps-br/agenda.png?branch=master)](http://travis-ci.org/tinyapps-br/agenda?branch=master)
+[![Code Climate](https://codeclimate.com/github/tinyapps-br/agenda.png)](https://codeclimate.com/github/tinyapps-br/agenda)
 [![Coverage Status](https://coveralls.io/repos/tinyapps-br/agenda/badge.png)](https://coveralls.io/r/tinyapps-br/agenda)
 [![Dependency Status](https://gemnasium.com/tinyapps-br/agenda.png)](https://gemnasium.com/tinyapps-br/agenda)
 

@@ -1,6 +1,11 @@
 # Agenda
 
 [![Build Status](https://secure.travis-ci.org/tinyapps-br/agenda.png?branch=master)](http://travis-ci.org/tinyapps-br/agenda?branch=master)
+[![Coverage Status](https://coveralls.io/repos/tinyapps-br/agenda/badge.png)](https://coveralls.io/r/tinyapps-br/agenda)
+[![Dependency Status](https://gemnasium.com/tinyapps-br/agenda.png)](https://gemnasium.com/tinyapps-br/agenda)
+
+TODO:
+- Implement email sending
 
 Presents you with a todo list. Emails them to you.
 

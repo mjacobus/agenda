@@ -6,10 +6,16 @@ env:
   - DB=sqlite
   - DB=mysql
   - DB=postgresql
-script: 
+script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rspec spec/
 before_script:
   - mysql -e 'create database agenda_test'
   - psql -c 'create database agenda_test' -U postgres
+branches:
+  only:
+    - master
+notifications:
+  email:
+    on_failure: change

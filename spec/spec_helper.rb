@@ -1,4 +1,11 @@
 require 'rubygems'
+
+require 'coveralls'
+Coveralls.wear!
+
+require 'simplecov'
+SimpleCov.start 'rails'
+
 require 'spork'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'

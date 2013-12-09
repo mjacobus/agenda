@@ -44,10 +44,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'rspec-rails'
-gem 'factory_girl_rails'
-gem 'shoulda-matchers'
-gem 'spork-rails', github: 'sporkrb/spork-rails'
 gem 'simple_form'
 gem 'devise', '~> 3.0.2'
 gem 'omniauth'
@@ -62,3 +58,11 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'bootstrap-datepicker-rails'
 gem 'high_voltage'
+
+# Testing
+gem 'rspec-rails'
+gem 'factory_girl_rails'
+gem 'shoulda-matchers'
+gem 'spork-rails', github: 'sporkrb/spork-rails'
+gem 'coveralls'
+gem 'simplecov'
